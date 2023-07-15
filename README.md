@@ -88,7 +88,8 @@ Tmux Open Anything works great when you have a command that searches the current
 Here's an example command:
 
 ```
-bind -N 'Search for URLs and file paths' u copy-mode \; send -X search-backward "[[:<:]](https?://|git@|git://|ssh://|ftp://|file:///)[[:alnum:]][[:alnum:]?=%/_.:,~@!#$&(*+-]*|[~]?/?([[:alnum:]_.-]+/)+[[:alnum:]_.-]+(:[[:digit:]]+){0,2}"
+bind -N 'Search for URLs and file paths' u copy-mode \; send -X search-backward \
+    "(https?://|git@|git://|ssh://|ftp://|file:///)[[:alnum:]][[:alnum:]?=%/_.:,~@!#$&(*+-]*|[~]?/?([[:alnum:]_.-]+/)+[[:alnum:]_.-]+(:[[:digit:]]+){0,2}"
 ```
 
 ## Author
