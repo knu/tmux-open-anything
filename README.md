@@ -10,6 +10,8 @@ There are currently four commands available:
 
    Opens the selected text as a pathname with the text editor defined by the `EDITOR` environment variable. (Default: `vi`)
 
+   This command supports a file path suffixed with a line number. (`filename:lineno`)
+
 - browse
 
    Opens the selected text as a URL with the web browser defined by the `BROWSER` environment variable. (Default: `open` or `xdg-open` depending on the platform)
@@ -78,6 +80,16 @@ set -g @plugin 'knu/tmux-open-anything'
 
     set -g @open-anything:search-url 'https://www.duckduckgo.com/?q=%s'
     ```
+
+## Tips
+
+Tmux Open Anything works great when you have a command that searches the current pane for URLs and file paths.
+
+Here's an example command:
+
+```
+bind -N 'Search for URLs and file paths' u copy-mode \; send -X search-backward "[[:<:]](https?://|git@|git://|ssh://|ftp://|file:///)[[:alnum:]][[:alnum:]?=%/_.:,~@!#$&(*+-]*|[~]?/?([[:alnum:]_.-]+/)+[[:alnum:]_.-]+(:[[:digit:]]+){0,2}"
+```
 
 ## Author
 
