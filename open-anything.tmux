@@ -70,8 +70,12 @@ else
                     n = ARGC - 1
                     for (i = 1; i <= n; i++) {
                         s = ARGV[i]
-                        gsub(/[^\nA-Za-z0-9_.,:\/@-]/, "\\\\&", s)
-                        gsub(/\n/, "\"\n\"", s)
+                        if (s == "") {
+                            s = "\047\047"
+                        } else {
+                            gsub(/[^\nA-Za-z0-9_.,:\/@-]/, "\\\\&", s)
+                            gsub(/\n/, "\"\n\"", s)
+                        }
                         printf "%s", s
                         if (i != n) printf " "
                     }
